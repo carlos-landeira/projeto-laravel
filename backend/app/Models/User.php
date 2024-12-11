@@ -45,4 +45,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function songs()
+    {
+        return $this->belongsToMany(Song::class, UserSong::TABLE_NAME, 'idUser', 'idSong');
+    }
+
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Song extends Model
+class UserSong extends Model
 {
     /**
      * Table name associated in database.
@@ -19,16 +19,8 @@ class Song extends Model
      * @var array
      */
     protected $fillable = [
-        'title',
-        'artist',
-        'album',
-        'isrc',
-        'platform',
-        'trackId',
-        'duration',
-        'addedDate',
-        'addedBy',
-        'url'
+        'idUser',
+        'idSong'
     ];
 
     /**
@@ -43,11 +35,5 @@ class Song extends Model
      *
      * @var string
      */
-    const TABLE_NAME = 'song';
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, UserSong::TABLE_NAME, 'idSong', 'idUser');
-    }
-
+    const TABLE_NAME = 'user_song';
 }

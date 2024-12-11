@@ -1,0 +1,3 @@
+CREATE DATABASE IF NOT EXISTS projeto_musicas;
+GRANT ALL PRIVILEGES ON projeto_musicas.* TO 'root'@'%' IDENTIFIED BY 'password';
+FLUSH PRIVILEGES;

@@ -103,12 +103,12 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         if (middleware === 'guest' && redirectIfAuthenticated && user)
             router.push(redirectIfAuthenticated)
 
-        if (middleware === 'auth' && !user?.email_verified_at)
+        if (middleware === 'auth' && user?.email_verified_at) // Desativar validaçao de confirmaçao de email para o projeto
             router.push('/verify-email')
-        
+
         if (
             window.location.pathname === '/verify-email' &&
-            user?.email_verified_at
+            !user?.email_verified_at
         )
             router.push(redirectIfAuthenticated)
         if (middleware === 'auth' && error) logout()
